@@ -5,6 +5,18 @@ const UserBoardsPage = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
 
+    // delete boards function 
+    const handleDelete = async (boardId) => {
+        try {
+            await axios.delete(`/api/boards/${boardId}`);
+
+            //update after deletion 
+            setBoards(prev => prev.filter(board => board._id !== boardId));
+        } catch (err) {
+            console.error("Error deleting board:", err.response?.data || err.message);
+        }
+    }
+
     useEffect(() => {
         const fetchBoards = async () => {
             try {
