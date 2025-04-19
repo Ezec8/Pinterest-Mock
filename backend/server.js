@@ -7,6 +7,7 @@ const config = require('./config');
 const authRoutes = require('./routes/auth');
 const pinsRoutes = require('./routes/pins');
 const boardsRoutes = require('./routes/boards');
+const userRoutes = require('./routes/users');
 
 const app = express();
 
@@ -26,6 +27,7 @@ mongoose.connect(config.MONGODB_URI, {
 app.use('/api/auth', authRoutes);
 app.use('/api/pins', pinsRoutes);
 app.use('/api/boards', boardsRoutes);
+app.use('/api/users', userRoutes);
 
 // Error handling middleware
 app.use((err, req, res, next) => {
