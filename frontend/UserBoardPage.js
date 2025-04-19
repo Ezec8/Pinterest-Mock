@@ -47,6 +47,8 @@ const UserBoardsPage = () => {
                     <div key={board._id} className="board-card">
                         <h3>{board.name}</h3>
                         <p>{board.description}</p>
+                        {/* button for deleting */}
+                        <button onClick={() => handleDelete(board._id)}>Delete</button>
                     </div>
                 ))}
             </div>
